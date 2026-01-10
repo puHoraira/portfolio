@@ -151,7 +151,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="project-btn btn-github"
                   >
-                    <FaGithub /> <span>View Code</span>
+                    <FaGithub /> <span>View Repository</span>
                   </a>
                   {project.apk && (
                     <a 
