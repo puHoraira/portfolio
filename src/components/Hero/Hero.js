@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaGithub, FaFacebook, FaEnvelope, FaPhone, FaDownload } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import './Hero.css';
 
@@ -20,22 +20,21 @@ const Hero = () => {
           </p>
 
           <div className="hero-buttons">
+            <a
+              href={`${process.env.PUBLIC_URL}/Abu_Horaira_Tonmoy_CV.pdf`}
+              download="Abu_Horaira_Tonmoy_CV.pdf"
+              className="btn btn-primary"
+            >
+              <FaDownload /> Download CV
+            </a>
             <Link
               to="contact"
               smooth={true}
               duration={500}
-              className="btn btn-primary"
+              className="btn btn-secondary"
             >
               Get In Touch
             </Link>
-            <a
-              href="https://github.com/puHoraira"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary"
-            >
-              View GitHub
-            </a>
           </div>
 
           <div className="hero-social">

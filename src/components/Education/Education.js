@@ -29,15 +29,6 @@ const Education = () => {
                 <span className="grade-label">CGPA (till 3rd year, 1st semester):</span>
                 <span className="grade-value">3.83 / 4.00</span>
               </div>
-              <div className="edu-highlights">
-                <h4>Key Highlights:</h4>
-                <ul>
-                  <li>Strong foundation in data structures, algorithms, and software engineering</li>
-                  <li>Hands-on experience in full-stack development and system design</li>
-                  <li>Active participation in technical projects and coursework</li>
-                  <li>Focus on practical problem-solving and technical support</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
