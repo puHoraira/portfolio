@@ -5,7 +5,6 @@ import { profile, thesis, dataset, projects } from '../data/profile';
 import ProjectRow from '../components/ProjectRow';
 
 const Home = () => {
-  const nexus = projects.find((p) => p.slug === 'csedu-nexus');
   const selected = projects.filter((p) => !p.featured).slice(0, 3);
   const pub = process.env.PUBLIC_URL;
 
