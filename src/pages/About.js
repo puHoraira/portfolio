@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi';
-import { profile, education, skills, interests, languages } from '../data/profile';
+import { profile, education, skills, interests } from '../data/profile';
 
 const About = () => (
   <>

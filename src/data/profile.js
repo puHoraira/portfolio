@@ -207,4 +207,3 @@ export const interests = [
   'Embedded systems',
 ];
 
-export const languages = ['Bengali (native)', 'English (fluent)'];
