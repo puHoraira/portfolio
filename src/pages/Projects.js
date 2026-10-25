@@ -11,11 +11,7 @@ const Projects = () => {
     <>
       <section className="page-intro container">
         <p className="eyebrow">Projects</p>
-        <h1>Software I've designed and built</h1>
-        <p className="lead">
-          Mostly full-stack web systems for real use cases, plus mobile and desktop apps from
-          coursework and side projects.
-        </p>
+        <h1>Designed softwares in coursework</h1>
       </section>
 
       <section className="section container">

@@ -21,11 +21,7 @@ const Research = () => {
     <>
       <section className="page-intro container">
         <p className="eyebrow">Research</p>
-        <h1>Edge AI, computer vision and autonomous systems</h1>
-        <p className="lead">
-          My research looks at how to make AI useful on small devices in the real world, from
-          drones that act on plain-language instructions to cameras that spot unsafe road crossings.
-        </p>
+        <h1>Edge AI, UAV and autonomous systems</h1>
       </section>
 
       <section className="section container">

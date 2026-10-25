@@ -67,17 +67,6 @@ const Home = () => {
               Read more <FiArrowRight />
             </span>
           </Link>
-          <Link to="/projects" className="now-card">
-            <span className="label">Project · Live</span>
-            <h3>{nexus.title}</h3>
-            <p>
-              A production platform for a student organisation: elections, events, payments and
-              meetings, deployed on Azure with Docker and Nginx.
-            </p>
-            <span className="card-more">
-              Read more <FiArrowRight />
-            </span>
-          </Link>
         </div>
       </section>
 

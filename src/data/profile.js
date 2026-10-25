@@ -8,7 +8,7 @@ export const profile = {
     'I build full-stack software and research on-device AI for autonomous drones.',
   intro: [
     'I am a final-year Computer Science & Engineering student at the University of Dhaka. Most of my work sits between two areas: practical software for real organisations, and AI that runs on small, resource-constrained hardware.',
-    'Right now I am working on my undergraduate thesis on an agentic AI framework that lets a drone carry out missions from natural-language commands, fully on-device. Before that I build a public image dataset for detecting illegal road crossings in Dhaka, and shipped CSEDU Nexus, a production platform for our department.',
+    'Right now I am working on my undergraduate thesis on an agentic AI framework that lets a drone carry out missions from natural-language commands, fully on-device.',
   ],
   location: 'Dhaka, Bangladesh',
   email: 'mdabu-2021911202@cs.du.ac.bd',
@@ -87,11 +87,11 @@ export const projects = [
   {
     slug: 'csedu-nexus',
     title: 'CSEDU Nexus',
-    subtitle: 'Student organisation management system',
+    subtitle: 'Student club management system',
     year: '2026',
     featured: true,
     summary:
-      'A full-stack platform that runs the day-to-day of a student organisation at CSE, University of Dhaka: membership, elections, events, finance and meetings, in one place.',
+      'A full-stack platform that runs the day-to-day of a student club for CSE department, University of Dhaka',
     highlights: [
       'JWT authentication with refresh tokens, email OTP and role-based access control',
       'Two-phase elections with eligibility checks, voting, results and dispute handling',
@@ -100,7 +100,7 @@ export const projects = [
       'Video meetings via ZEGOCLOUD, notifications and email announcements',
       'Deployed with Docker Compose behind Nginx (Let\'s Encrypt SSL) on an Azure VM',
     ],
-    stack: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Nginx', 'Azure'],
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Nginx', 'Azure'],
     github: 'https://github.com/puHoraira/CSEDU_Nexus',
     live: 'https://nexus.farefin.com',
   },
@@ -190,7 +190,7 @@ export const education = [
 ];
 
 export const skills = [
-  { group: 'Languages', items: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Dart'] },
+  { group: 'Languages', items: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'Dart'] },
   { group: 'Web & backend', items: ['React', 'Node.js', 'Express', 'HTML', 'CSS'] },
   { group: 'Databases', items: ['MongoDB', 'MySQL', 'Oracle SQL', 'Firebase'] },
   { group: 'Cloud & tools', items: ['Azure', 'Docker', 'Nginx', 'Git', 'Linux', 'Android Studio'] },
