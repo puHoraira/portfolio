@@ -1,29 +1,59 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Education from './components/Education/Education';
-import Skills from './components/Skills/Skills';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-import './App.css';
+import React, { useEffect } from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Research from './pages/Research';
+import Projects from './pages/Projects';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+import { profile } from './data/profile';
 
+const titles = {
+  '/': `${profile.name} · Portfolio`,
+  '/research': `Research · ${profile.shortName}`,
+  '/projects': `Projects · ${profile.shortName}`,
+  '/about': `About · ${profile.shortName}`,
+};
+
+// Reset scroll and set the tab title on every page change.
+function RouteEffects() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = titles[pathname] || `${profile.shortName} · Portfolio`;
+  }, [pathname]);
+  return null;
+}
+
+// HashRouter keeps deep links working on GitHub Pages.
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Hero />
-        <About />
-        <Education />
-        <Skills />
-        <Projects />
-        <Contact />
-        <Footer />
-      </div>
-    </Router>
+    <HashRouter>
+      <RouteEffects />
+      {/* With HashRouter a plain "#main" link would change the route, so focus it directly. */}
+      <a
+        className="skip-link"
+        href="#/"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
+      >
+        Skip to content
+      </a>
+      <Header />
+      <main id="main" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </HashRouter>
   );
 }
 
