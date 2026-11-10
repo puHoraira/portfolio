@@ -39,6 +39,37 @@ const Research = () => {
 
       <section className="section container">
         <div className="section-head">
+          <h2>Undergraduate thesis</h2>
+          <span className="pill">{thesis.status}</span>
+        </div>
+        <article className="paper">
+          <h3 className="paper-title">{thesis.title}</h3>
+          <p className="muted">
+            Supervised by{' '}
+            <a href={thesis.supervisor.url} target="_blank" rel="noopener noreferrer" className="text-link">
+              {thesis.supervisor.name}
+            </a>
+            , {thesis.supervisor.title}
+          </p>
+          <p>{thesis.summary}</p>
+
+          <div className="feature-grid">
+            {thesis.components.map((c) => (
+              <div key={c.title} className="feature">
+                <h4>{c.title}</h4>
+                <p>{c.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="muted small">
+            Target domains: {thesis.domains.join(' · ')}
+          </p>
+        </article>
+      </section>
+
+      <section className="section container">
+        <div className="section-head">
           <h2>Preprint</h2>
           <span className="pill">{preprint.venue} · {preprint.year}</span>
         </div>
@@ -93,37 +124,6 @@ const Research = () => {
             </div>
             <p>{preprintCitation}</p>
           </div>
-        </article>
-      </section>
-
-      <section className="section container">
-        <div className="section-head">
-          <h2>Undergraduate thesis</h2>
-          <span className="pill">{thesis.status}</span>
-        </div>
-        <article className="paper">
-          <h3 className="paper-title">{thesis.title}</h3>
-          <p className="muted">
-            Supervised by{' '}
-            <a href={thesis.supervisor.url} target="_blank" rel="noopener noreferrer" className="text-link">
-              {thesis.supervisor.name}
-            </a>
-            , {thesis.supervisor.title}
-          </p>
-          <p>{thesis.summary}</p>
-
-          <div className="feature-grid">
-            {thesis.components.map((c) => (
-              <div key={c.title} className="feature">
-                <h4>{c.title}</h4>
-                <p>{c.text}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="muted small">
-            Target domains: {thesis.domains.join(' · ')}
-          </p>
         </article>
       </section>
 
