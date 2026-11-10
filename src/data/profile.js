@@ -52,6 +52,36 @@ export const thesis = {
   },
 };
 
+export const preprint = {
+  title:
+    'Decentralised Drone Swarm Formation under Silent Failures with ACO Pheromone Claims and PSO Tuning',
+  authors: ['Md. Abu Horaira'],
+  venue: 'arXiv',
+  category: 'cs.AI',
+  year: 2026,
+  submitted: '7 November 2026',
+  arxivId: '2611.10454',
+  url: 'https://arxiv.org/abs/2611.10454',
+  pdf: 'https://arxiv.org/pdf/2611.10454',
+  localPdf: '2611.10454v1.pdf',
+  doi: '10.48550/arXiv.2611.10454',
+  license: 'CC BY 4.0',
+  details: '19 pages, 7 figures, 22 tables. Code, browser demo and raw results included.',
+  summary:
+    'A decentralised controller that lets a drone swarm form a picture without a central planner, even when nobody knows how many drones are alive, failures are silent, radio is short-range and lossy, and actuation is noisy. Ant colony optimisation assigns drones to positions through claims that behave like evaporating pheromone and are gossiped between neighbours, so evaporation doubles as failure detection. A particle swarm optimisation law flies the drones, a noise-buffered Voronoi filter keeps them apart, and PSO also tunes the controller offline.',
+  facts: [
+    { value: '95–99%', label: 'of runs formed the picture in the hardest regime' },
+    { value: '96–100%', label: 'recovered after silently losing half the swarm' },
+    { value: '300', label: 'drones, and 8 unseen shapes with no retuning' },
+    { value: '5', label: 'overlaps in 21,088 runs' },
+  ],
+  findings: [
+    'Proved that claims of destroyed drones vanish within bounded time and that conflicts between neighbours resolve consistently.',
+    'Proved that survivors cover the picture to within a factor of two, and that drones cannot collide while their safety cells are feasible.',
+    'Compared against a CBBA-style baseline: the benefit comes from the pheromone dynamics and from tuning, and our controller generalised better to unseen shapes.',
+  ],
+};
+
 export const dataset = {
   title: 'An Image Dataset for Illegal Road Crossing Detection in Bangladesh',
   venue: 'Mendeley Data',

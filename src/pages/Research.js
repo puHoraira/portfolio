@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
-import { FiArrowUpRight, FiCopy, FiCheck } from 'react-icons/fi';
-import { thesis, dataset, profile } from '../data/profile';
+import { FiArrowUpRight, FiCopy, FiCheck, FiDownload, FiFileText } from 'react-icons/fi';
+import { thesis, dataset, preprint, profile } from '../data/profile';
+
+const Authors = ({ authors }) => (
+  <p className="authors">
+    {authors.map((a, i) => (
+      <React.Fragment key={a}>
+        {a === profile.name ? <strong>{a}</strong> : a}
+        {i < authors.length - 1 ? ', ' : ''}
+      </React.Fragment>
+    ))}
+  </p>
+);
 
 const Research = () => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(null);
+  const pub = process.env.PUBLIC_URL;
 
   const citation = `${dataset.authors.join(', ')} (${dataset.year}). ${dataset.title}. ${dataset.venue}, V1. https://doi.org/${dataset.doi}`;
+  const preprintCitation = `${preprint.authors.join(', ')} (${preprint.year}). ${preprint.title}. arXiv:${preprint.arxivId} [${preprint.category}]. https://doi.org/${preprint.doi}`;
 
-  const copyCitation = async () => {
+  const copyCitation = async (key, text) => {
     try {
-      await navigator.clipboard.writeText(citation);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(text);
+      setCopied(key);
+      setTimeout(() => setCopied(null), 2000);
     } catch (e) {
       /* clipboard unavailable */
     }
@@ -22,6 +35,65 @@ const Research = () => {
       <section className="page-intro container">
         <p className="eyebrow">Research</p>
         <h1>Edge AI, UAV and autonomous systems</h1>
+      </section>
+
+      <section className="section container">
+        <div className="section-head">
+          <h2>Preprint</h2>
+          <span className="pill">{preprint.venue} · {preprint.year}</span>
+        </div>
+        <article className="paper">
+          <h3 className="paper-title">{preprint.title}</h3>
+          <Authors authors={preprint.authors} />
+          <p className="muted small">
+            arXiv:{preprint.arxivId} [{preprint.category}] · Submitted {preprint.submitted} · License{' '}
+            {preprint.license}
+          </p>
+          <p>{preprint.summary}</p>
+
+          <dl className="facts">
+            {preprint.facts.map((f) => (
+              <div key={f.label}>
+                <dt>{f.value}</dt>
+                <dd>{f.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <h4>Key results</h4>
+          <ul className="bullets">
+            {preprint.findings.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+          <p className="muted small">{preprint.details}</p>
+
+          <div className="link-row">
+            <a href={preprint.pdf} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
+              <FiFileText /> Read PDF <FiArrowUpRight />
+            </a>
+            <a href={preprint.url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              arXiv:{preprint.arxivId}
+            </a>
+            <a href={`${pub}/${preprint.localPdf}`} download className="btn btn-ghost">
+              <FiDownload /> Download
+            </a>
+          </div>
+
+          <div className="citation">
+            <div className="citation-head">
+              <span className="label">Cite</span>
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => copyCitation('preprint', preprintCitation)}
+              >
+                {copied === 'preprint' ? <><FiCheck /> Copied</> : <><FiCopy /> Copy</>}
+              </button>
+            </div>
+            <p>{preprintCitation}</p>
+          </div>
+        </article>
       </section>
 
       <section className="section container">
@@ -62,14 +134,7 @@ const Research = () => {
         </div>
         <article className="paper">
           <h3 className="paper-title">{dataset.title}</h3>
-          <p className="authors">
-            {dataset.authors.map((a, i) => (
-              <React.Fragment key={a}>
-                {a === profile.name ? <strong>{a}</strong> : a}
-                {i < dataset.authors.length - 1 ? ', ' : ''}
-              </React.Fragment>
-            ))}
-          </p>
+          <Authors authors={dataset.authors} />
           <p className="muted small">
             {dataset.version} · Published {dataset.published} · License {dataset.license}
           </p>
@@ -108,8 +173,8 @@ const Research = () => {
           <div className="citation">
             <div className="citation-head">
               <span className="label">Cite</span>
-              <button type="button" className="text-link" onClick={copyCitation}>
-                {copied ? <><FiCheck /> Copied</> : <><FiCopy /> Copy</>}
+              <button type="button" className="text-link" onClick={() => copyCitation('dataset', citation)}>
+                {copied === 'dataset' ? <><FiCheck /> Copied</> : <><FiCopy /> Copy</>}
               </button>
             </div>
             <p>{citation}</p>

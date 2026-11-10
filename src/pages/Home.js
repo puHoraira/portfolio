@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiArrowUpRight, FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import { profile, thesis, dataset, projects } from '../data/profile';
+import { profile, thesis, dataset, preprint, projects } from '../data/profile';
 import ProjectRow from '../components/ProjectRow';
 
 const Home = () => {
@@ -44,6 +44,17 @@ const Home = () => {
           <h2>What I'm working on</h2>
         </div>
         <div className="now-grid">
+          <Link to="/research" className="now-card">
+            <span className="label">Preprint · {preprint.venue} {preprint.year}</span>
+            <h3>Drone swarm formation under silent failures</h3>
+            <p>
+              A decentralised controller using ACO pheromone claims and PSO tuning that keeps a swarm
+              in formation even after silently losing half its drones.
+            </p>
+            <span className="card-more">
+              Read more <FiArrowRight />
+            </span>
+          </Link>
           <Link to="/research" className="now-card">
             <span className="label">Thesis · {thesis.status}</span>
             <h3>Agentic AI for autonomous UAV missions</h3>
